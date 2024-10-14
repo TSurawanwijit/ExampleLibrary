@@ -39,9 +39,9 @@ android {
 publishing {
     publications {
         register<MavenPublication>("libraryARelease") {
-            groupId = "com.blu.me"
-            artifactId = "librarya"
-            version = "1.0.3"
+            groupId = "com.github.TSurawanwijit"
+            artifactId = "libraryA"
+            version = "1.0.0"
 
             afterEvaluate {
                 from(components["release"])
