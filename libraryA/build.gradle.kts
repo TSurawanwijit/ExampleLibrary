@@ -28,8 +28,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -41,7 +41,7 @@ publishing {
         register<MavenPublication>("libraryARelease") {
             groupId = "com.github.tsurawanwijit"
             artifactId = "examplelibrary"
-            version = "1.0.23"
+            version = "1.0.24"
 
             afterEvaluate {
                 from(components["release"])
@@ -87,6 +87,15 @@ publishing {
 //                username = project.findProperty("mavenCentralUsername") as String? ?: ""
 //                password = project.findProperty("mavenCentralPassword") as String? ?: ""
 //            }
+        }
+    }
+    tasks.withType<PublishToMavenLocal>().configureEach {
+        doLast {
+            copy {
+                from("$buildDir/publications/libraryARelease/pom-default.xml")
+                into("$buildDir/publications/libraryARelease")
+                rename("pom-default.xml", "pom.xml")
+            }
         }
     }
 }

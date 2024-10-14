@@ -1,6 +1,2 @@
 jdk:
   - openjdk11
-install:
-  - ./gradlew publishLibraryAReleasePublicationToMavenLocal
-  - FILE="-Dfile=libraryA-release.aar"
-  - mvn install:install-file $FILE -Dpackaging=aar -DpomFile=pom-default.xml
