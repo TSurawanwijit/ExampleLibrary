@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 pluginManagement {
     repositories {
         google {
@@ -17,6 +20,16 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven(url = "https://jitpack.io")
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/TSurawanwijit/ExampleLibrary")
+            val githubProperties = Properties()
+            githubProperties.load(FileInputStream(File(rootDir, "gradle.properties")))
+            credentials {
+                username = githubProperties["gpr.user"]?.toString() ?: ""
+                password = githubProperties["gpr.token"]?.toString() ?: ""
+            }
+        }
     }
 }
 
