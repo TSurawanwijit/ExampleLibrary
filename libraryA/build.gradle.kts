@@ -41,7 +41,7 @@ publishing {
         register<MavenPublication>("libraryARelease") {
             groupId = "com.blu.me"
             artifactId = "librarya"
-            version = "1.0.7"
+            version = "1.0.1"
 
             afterEvaluate {
                 from(components["release"])
