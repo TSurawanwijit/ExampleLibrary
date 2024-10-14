@@ -37,7 +37,8 @@ android {
 
 dependencies {
 
-    implementation(project(":libraryA"))
+//    implementation(project(":libraryA"))
+    implementation(libs.librarya)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
