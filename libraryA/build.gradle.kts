@@ -41,7 +41,7 @@ publishing {
         register<MavenPublication>("libraryARelease") {
             groupId = "com.github.tsurawanwijit"
             artifactId = "examplelibrary"
-            version = "1.0.13"
+            version = "1.0.14"
 
             afterEvaluate {
                 from(components["release"])
